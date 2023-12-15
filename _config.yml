@@ -18,14 +18,14 @@
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
 
-title: Man vs AI: A Comparison of Human and LLM Wikispeedia Strategy
-email: lorenzodrudi11@gmail.com
+title: "Man vs AI: A Comparison of Human and LLM Wikispeedia Strategy"
+email: "lorenzodrudi11@gmail.com"
 description: >- # this means to ignore newlines until "baseurl:"
-  Website for course Applied Data Analysis (CS-401) at EPFL.
+  "Website for course Applied Data Analysis (CS-401) at EPFL."
 baseurl: "/klech-datastory" # the subpath of your site, e.g. /blog
 url: "drudilorenzo.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-domain: drudilorenzo.github.io
-github_username:  drudilorenzo
+domain: "drudilorenzo.github.io"
+github_username:  "drudilorenzo"
 
 # Build settings
 theme: minima
