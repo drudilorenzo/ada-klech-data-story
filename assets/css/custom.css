@@ -1,0 +1,70 @@
+.team-member {
+	text-align: center
+}
+
+.team-member img {
+	margin: auto;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+}
+
+.contact {
+	color: #000;
+	background-image: url(../../images/word_map.png);
+	background-position: 50% 50%;
+	background-repeat: no-repeat;
+	margin-top: 60px
+}
+
+.social-icon a {
+	background: #3385FF;
+	color: #fff;
+	padding: 5px 5px;
+	height: 28px;
+	width: 28px;
+	display: block;
+	border-radius: 50px;
+}
+
+.social-icon a:hover {
+	background: #3385FF
+}
+
+.list-inline {
+	list-style: none;;
+}
+
+.list-inline li {
+	display: inline-block;
+}
+
+.navy {
+	color: #3385FF;
+}
+
+#anim {
+	font-size: 50px;
+	font-weight: 800;
+	color: rgb(61, 54, 54);
+}
+
+.logo:hover {
+	text-decoration: none;
+}
+
+.row {
+	display: flex;
+	size: fit-content;
+}
+
+#links {
+	background-color: rgba(226, 221, 221, 0.7);
+	color: #676A6C;
+	background-size: cover;
+	padding: 50px;
+}
+
+#ref {
+	text-align: center;
+}
