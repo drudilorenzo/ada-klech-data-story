@@ -1,12 +1,14 @@
 const questions = [
-    "Question 1?",
-    "Question 2?",
-    "Question 3?"
+    'Let\'s play a game!',
+    'The most similar word to "England" among [..., English language, Equatorial_Guinea, Eritrea, Ethiopia, Europe, Famine, Flute, Fossil, France, ...] is:',
+    'The most similar word to "England" among [..., Czech Republic, Dark Ages, Democracy, Denmark, Dolphin, Dublin, Earth, England, Estonia, European Union, ...] is:',
+    'You reached the end of the game!'
 ];
 const answers = [
-    "Answer 1.",
-    "Answer 2.",
-    "Answer 3!"
+    'You have to reach "England" starting from "Africa".',
+    'Europe',
+    'England',
+    'Well done!'
 ];
 
 let currentPair = 0;

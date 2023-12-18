@@ -2,6 +2,7 @@
 	font-size: 50px;
 	font-weight: 800;
 	color: rgb(61, 54, 54);
+	line-height: 1.1;
 }
 
 #logo {
@@ -32,7 +33,7 @@
 
 .contact {
 	color: #000;
-	background-image: url(../../images/word_map.png);
+	background-image: url("../../assets/images/word_map.png");
 	background-position: 50% 50%;
 	background-repeat: no-repeat;
 	margin-top: 60px
@@ -81,3 +82,21 @@
 	margin-top: 4%;
 }
 
+/* Media Queries */
+@media screen and (max-width: 768px) {
+	#anim {
+		font-size: 30px;
+	}
+
+	#home h2 {
+		font-size: 40px;
+	}
+	
+}
+
+@media screen and (max-width: 480px) {
+	#anim {
+		font-size: 20px;
+	}
+	
+}

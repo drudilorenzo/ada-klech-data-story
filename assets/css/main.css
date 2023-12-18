@@ -2169,7 +2169,6 @@ input, select, textarea {
 		line-height: 1em;
 		color: rgba(185, 186, 187, 0.5);
 		overflow: hidden;
-		background-image: url(../../images/word_map.png);
 		background-position: 50% 50%;
 		background-repeat: no-repeat;
 	}
@@ -2237,7 +2236,7 @@ input, select, textarea {
 /* Intro */
 
 	#home {
-		background: url("images/overlay.png"), url("../../images/intro.jpg");
+		background: url("images/overlay.png"), url("../../assets/images/home.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, bottom center;
@@ -2247,7 +2246,7 @@ input, select, textarea {
 /* One */
 
 	#intro {
-		background: url("images/overlay.png"), url("../../images/one.jpg");
+		background: url("images/overlay.png"), url("../../assets/images/intro.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
@@ -2256,7 +2255,7 @@ input, select, textarea {
 /* Two */
 
 	#questions {
-		background: url("images/overlay.png"), url("../../images/two.jpg");
+		background: url("images/overlay.png"), url("../../assets/images/questions.jpg");
 		background-size: 256px 256px, cover;
 		background-attachment: fixed, fixed;
 		background-position: top left, center center;
