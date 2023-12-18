@@ -13,5 +13,5 @@ Team members:
 - [Hanwen Zhang](https://github.com/Katie-zhang)
 - [Xingyue Zhang](https://github.com/bREAKtHEdOLL)
 
-Main repo [link](https://github.com/epfl-ada/ada-2023-project-klech).
+Main repo [link](https://github.com/epfl-ada/ada-2023-project-klech). \
 Dataset [link](https://snap.stanford.edu/data/wikispeedia.html).
