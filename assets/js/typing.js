@@ -11,6 +11,9 @@ const answers = [
     'Well done!'
 ];
 
+const debounceInterval = 1000;
+
+let lastCall = 0;
 let currentPair = 0;
 let animating = false;
 let animationFrameRequest; 
@@ -50,21 +53,29 @@ function stopAnimation() {
     const element = document.getElementById('anim');
     element.textContent = '';
     clearTimeout(animationFrameRequest);
-    console.log('Animation stopped');
     currentPair = 0;
     animating = false;
 }
 
 let observer = new IntersectionObserver((entries) => {
+    let now = Date.now();
+    if (now - lastCall < debounceInterval) {
+        return;
+    }    
+
     entries.every(entry => {
-        if (entry.isIntersecting && !animating) {
-            showQuestionAnswerPair();
-            return true;
-        } else {
+        if (!entry.isIntersecting && animating) {
             stopAnimation();
             return false;
+        } else {
+            showQuestionAnswerPair();
+            return true;
         }
     });
 }, { threshold: 0.0 });
+
+window.onbeforeunload = function () {
+    window.scrollTo(0, 0);
+}
 
 observer.observe(document.getElementById('intro'));
