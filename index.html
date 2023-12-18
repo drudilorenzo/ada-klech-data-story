@@ -7,27 +7,27 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 		<link rel="stylesheet" href="assets/css/main.css" />
-		<link href="assets/css/custom.css" rel="stylesheet">
+		<link rel="stylesheet" href="assets/css/custom.css">
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
 	</head>
 	<body class="is-preload">
 
 		<!-- Header -->
 			<header id="header">
-				<a class="logo" href="#intro">Klech</a>
+				<a id="logo" class="logo" href="#intro">Klech</a>
 				<nav>
 					<ul>
-						<li><a href="#intro">Home</a></li>
-						<li><a href="#one">Introduction</a></li>
-						<li><a href="#two">Research Questions</a></li>
-						<li><a href="#work">Datastory</a></li>
+						<li><a href="#home">Home</a></li>
+						<li><a href="#intro">Introduction</a></li>
+						<li><a href="#questions">Research Questions</a></li>
+						<li><a href="#datastory">Datastory</a></li>
 						<li><a href="#footer">Team</a></li>
 					</ul>
 				</nav>
 			</header>
 
-		<!-- Intro -->
-			<section id="intro" class="main style1 dark fullscreen" tabindex="">
+		<!-- Home -->
+			<section id="home" class="main style1 dark fullscreen" tabindex="">
 				<div class="content">
 					<header>
 						<h2>Man vs AI: A Comparison of Human and LLM Wikispeedia Strategy</h2>
@@ -36,8 +36,8 @@
 				</div>
 			</section>
 
-		<!-- One -->
-			<section id="one" class="main style2 right dark fullscreen">
+		<!-- Introduction -->
+			<section id="intro" class="main style2 right dark fullscreen">
 				<div class="content box style2">
 					<header>
 						<h2>Introduction</h2>
@@ -52,11 +52,11 @@
 					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
 					id varius justo euismod in. Curabitur egestas consectetur magna.</p>
 				</div>
-				<a href="#two" class="button style2 down anchored">Next</a>
+				<a href="#questions" class="button style2 down anchored">Next</a>
 			</section>
 
-		<!-- Two -->
-			<section id="two" class="main style2 left dark fullscreen">
+		<!-- Research Questions -->
+			<section id="questions" class="main style2 left dark fullscreen">
 				<div class="content box style2">
 					<header>
 						<h2>Research Questions</h2>
@@ -65,13 +65,13 @@
 					Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis arcu,
 					id varius justo euismod in. Curabitur egestas consectetur magna.</p>
 				</div>
-				<a href="#work" class="button style2 down anchored">Next</a>
+				<a href="#datastory" class="button style2 down anchored">Next</a>
 			</section>
 
-			<!-- Work -->
+			<!-- Datastory -->
 			<h2 style="text-align: center; margin-top: 50px">Datastory</h2>
 			
-			<section id="work" class="main style3 primary">
+			<section class="main style3 primary">
 				<div class="content">
 					<header>
 						<h3>Subsection 1</h3>
@@ -89,7 +89,7 @@
 				</div>
 			</section>
 
-			<section id="work" class="main style3 primary" style="background-color: rgb(240, 238, 238)">
+			<section class="gray main style3 gray">
 				<div class="content">
 					<header>
 						<h3>Subsection 2</h3>
@@ -107,7 +107,7 @@
 				</div>
 			</section>
 
-			<section id="work" class="main style3 primary">
+			<section class="main style3 primary">
 				<div class="content">
 					<header>
 						<h3>Subsection 3</h3>
@@ -127,15 +127,12 @@
 
 		<!-- Footer -->
 			<footer id="footer">
-
-				<!-- Icons -->
-
-					<section id="links" class="features contact " style="margin-top: 0;"> 
+					<section id="contact-section" class="features contact"> 
 						<div class="contact-container"> 
 							<div class="row m-b-10" style="margin-bottom: 4%;">
 								<div class="col-lg-12 text-center">
 									 <div class="navy-line"></div> 
-									 <h1><span data-i18n="link.link">Team</span></h1>
+									 <h1 style="font-size: 150%;">Team</h1>
 							</div>
 							</div>
 							<div class="row justify-content-center">
@@ -144,8 +141,8 @@
 										<h4><span class="navy">Ernesto</span> Bocini</h4>
 										<p>______</p>
 										<ul class="list-inline social-icon"> 
-											<li><a href="https://github.com/ernestoBocini" target="blank"><i class="fa fa-link"></i></a> </li>
-											<li><a href="mailto:ernesto.bocini@epfl.ch"><i class="icon brands fa-github"></i></a></li>
+											<li><a href="https://github.com/ernestoBocini" target="blank"><i class="icon brands fa-github"></i></a> </li>
+											<li><a href="mailto:ernesto.bocini@epfl.ch"><i class="fa fa-envelope"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -154,8 +151,8 @@
 										<h4><span class="navy">Lorenzo</span> Drudi</h4>
 										<p>______</p>
 										<ul class="list-inline social-icon">
-											<li><a href="https://github.com/drudilorenzo" target="blank"><i class="fa fa-link"></i></a> </li>
-											<li><a href="mailto:lorenzo.drudi@epfl.ch"><i class="icon brands fa-github"></i></a></li>
+											<li><a href="https://github.com/drudilorenzo" target="blank"><i class="icon brands fa-github"></i></a> </li>
+											<li><a href="mailto:lorenzo.drudi@epfl.ch"><i class="fa fa-envelope"></i></a></li>
 										</ul>
 									</div>
 								</div>
@@ -164,8 +161,8 @@
 										<h4><span class="navy">Kaede</span> Johnson</h4>
 										<p>______</p>
 										<ul class="list-inline social-icon">
-											<li><a href="https://github.com/kaedejohnson" target="blank"><i class="fa fa-link"></i></a> </li>
-											<li><a href="mailto:kaede.johnson@epfl.ch"><i class="icon brands fa-github"></i></a> </li>
+											<li><a href="https://github.com/kaedejohnson" target="blank"><i class="icon brands fa-github"></i></a> </li>
+											<li><a href="mailto:kaede.johnson@epfl.ch"><i class="fa fa-envelope"></i></a> </li>
 										 </ul>
 									</div>
 								</div>
@@ -174,8 +171,8 @@
 										<h4><span class="navy">Hanwen</span> Zhang</h4>
 										<p>______</p>
 										<ul class="list-inline social-icon">
-											<li><a href="https://github.com/Katie-zhang" target="blank"><i class="fa fa-link"></i></a> </li>
-											<li><a href="mailto:hanwen.zhang@epfl.ch"><i class="icon brands fa-github"></i></a> </li>
+											<li><a href="https://github.com/Katie-zhang" target="blank"><i class="icon brands fa-github"></i></a> </li>
+											<li><a href="mailto:hanwen.zhang@epfl.ch"><i class="fa fa-envelope"></i></a> </li>
 										</ul>
 									</div>
 								</div>
@@ -184,15 +181,15 @@
 										<h4><span class="navy">Xingyue</span> Zhang</h4>
 										<p>______</p>
 										<ul class="list-inline social-icon">
-											<li><a href="https://github.com/bREAKtHEdOLL" target="blank"><i class="fa fa-link"></i></a> </li>
-											<li><a href="mailto:Xingyue.zhang@epfl.ch"><i class="icon brands fa-github"></i></a> </li>
+											<li><a href="https://github.com/bREAKtHEdOLL" target="blank"><i class="icon brands fa-github"></i></a> </li>
+											<li><a href="mailto:Xingyue.zhang@epfl.ch"><i class="fa fa-envelope"></i></a> </li>
 										</ul>
 									</div>
 								</div>
 							</div>
 
 				<!-- Menu -->
-					<ul id="ref" class="menu" style="margin-top: 4%;">
+					<ul id="repo-link" class="menu">
 						<li><a href="https://github.com/epfl-ada/ada-2023-project-klech" class="icon brands fa-github"><span class="label">Github</span></a></li>
 						<li >&copy; KlechxADA project</li></li>
 					</ul>

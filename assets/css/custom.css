@@ -1,12 +1,33 @@
+#anim {
+	font-size: 50px;
+	font-weight: 800;
+	color: rgb(61, 54, 54);
+}
+
+#logo {
+	margin-left: 0.3em;
+}
+
+.gray {
+	background-color: rgb(240, 238, 238);
+}
+
+#logo:hover {
+	text-decoration: none;
+}
+
+.row {
+	display: flex;
+	size: fit-content;
+}
+
 .team-member {
 	text-align: center
 }
 
-.team-member img {
-	margin: auto;
-	display: flex;
-	justify-content: center;
-	align-items: center;
+.team-member p {
+	letter-spacing: -0.05em;
+	overflow: hidden;
 }
 
 .contact {
@@ -17,13 +38,15 @@
 	margin-top: 60px
 }
 
+.social-icon {
+	color: white;
+}
+
 .social-icon a {
 	background: #3385FF;
-	color: #fff;
+	height: 30px;
+	width: 30px;
 	padding: 5px 5px;
-	height: 28px;
-	width: 28px;
-	display: block;
 	border-radius: 50px;
 }
 
@@ -32,39 +55,29 @@
 }
 
 .list-inline {
-	list-style: none;;
+	list-style: none;
 }
 
 .list-inline li {
 	display: inline-block;
+	margin: 0 0.2em;
 }
 
 .navy {
 	color: #3385FF;
 }
 
-#anim {
-	font-size: 50px;
-	font-weight: 800;
-	color: rgb(61, 54, 54);
-}
-
-.logo:hover {
-	text-decoration: none;
-}
-
-.row {
-	display: flex;
-	size: fit-content;
-}
-
-#links {
+#contact-section {
 	background-color: rgba(226, 221, 221, 0.7);
-	color: #676A6C;
+	color: #868a8c;
 	background-size: cover;
 	padding: 50px;
+	margin-top: 0;
 }
 
-#ref {
+#repo-link {
 	text-align: center;
+	font-weight: 700;
+	margin-top: 4%;
 }
+
