@@ -11,11 +11,8 @@ const answers = [
     'Well done!'
 ];
 
-const debounceInterval = 1000;
 
-let lastCall = 0;
 let currentPair = 0;
-let animating = false;
 let animationFrameRequest; 
 
 function typeWriter(text, elementId, callback) {
@@ -36,9 +33,7 @@ function typeWriter(text, elementId, callback) {
     typing();
 }
 
-function showQuestionAnswerPair() {
-    animating = true;
-    
+function showQuestionAnswerPair() {    
     typeWriter(questions[currentPair], 'anim', () => {
         setTimeout(() => {
             typeWriter(answers[currentPair], 'anim', () => {
@@ -49,33 +44,8 @@ function showQuestionAnswerPair() {
     });
 }
 
-function stopAnimation() {
-    const element = document.getElementById('anim');
-    element.textContent = '';
-    clearTimeout(animationFrameRequest);
-    currentPair = 0;
-    animating = false;
-}
-
-let observer = new IntersectionObserver((entries) => {
-    let now = Date.now();
-    if (now - lastCall < debounceInterval) {
-        return;
-    }    
-
-    entries.every(entry => {
-        if (!entry.isIntersecting && animating) {
-            stopAnimation();
-            return false;
-        } else {
-            showQuestionAnswerPair();
-            return true;
-        }
-    });
-}, { threshold: 0.0 });
-
 window.onbeforeunload = function () {
     window.scrollTo(0, 0);
 }
 
-observer.observe(document.getElementById('intro'));
+showQuestionAnswerPair();
