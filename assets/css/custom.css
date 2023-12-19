@@ -7,7 +7,7 @@
 }
 
 #header nav ul li a:hover {
-	color: #3385FF;
+	color: var(--secondary-color);
 }
 
 #logo {
@@ -26,12 +26,6 @@
 	margin-bottom: 50px;
 }
 
-@media screen and (max-width: 900px) {
-	#intro div, #questions div {
-		clear: both;
-	}
-	
-}
 
 #questions-list {
 	list-style: circle;
@@ -72,7 +66,7 @@
 
 .social-icon a {
 	display: inline-flex;
-	background: #3385FF;
+	background: var(--secondary-color);
 	height: 35px;
 	width: 35px;
 	padding: 5px 5px;
@@ -84,7 +78,7 @@
 }
 
 .social-icon a:hover {
-	background: #3385FF
+	background: var(--secondary-color);
 }
 
 .list-inline {
@@ -104,7 +98,7 @@
 }
 
 .navy {
-	color: #3385FF;
+	color: var(--secondary-color);
 }
 
 #contact-section {
@@ -124,7 +118,21 @@
 	font-weight: 700;
 }
 
+/* Properties */
+@property --secondary-color {
+	syntax: "<color>";
+	inherits: true;
+	initial-value: #3385FF;
+}
+
 /* Media Queries */
+@media screen and (max-width: 900px) {
+	#intro div, #questions div {
+		clear: both;
+	}
+	
+}
+
 @media screen and (max-width: 768px) {
 	#anim {
 		font-size: 30px;
@@ -133,16 +141,16 @@
 	#home h2 {
 		font-size: 40px;
 	}
-
+	
 	.team-member h4 {
 		white-space: normal;
 		margin-top: 20px;
 	}
-
+	
 	#questions-list {
 		list-style: none;
 	}
-
+	
 	.button {
 		display: none;
 	}
