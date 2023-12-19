@@ -6,6 +6,10 @@
 	margin-top: 50px;
 }
 
+#header nav ul li a:hover {
+	color: #3385FF;
+}
+
 #logo {
 	margin-left: 0.3em;
 }
@@ -67,12 +71,16 @@
 }
 
 .social-icon a {
-	display: inline-block;
+	display: inline-flex;
 	background: #3385FF;
 	height: 30px;
 	width: 30px;
 	padding: 5px 5px;
 	border-radius: 50px;
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	text-decoration: none;
 }
 
 .social-icon a:hover {
