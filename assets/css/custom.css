@@ -3,6 +3,7 @@
 	font-weight: 800;
 	color: rgb(61, 54, 54);
 	line-height: 1.1;
+	margin-top: 50px;
 }
 
 #logo {
@@ -17,8 +18,20 @@
 	text-decoration: none;
 }
 
+#intro div, #questions div {
+	margin-bottom: 50px;
+}
+
+@media screen and (max-width: 900px) {
+	#intro div, #questions div {
+		clear: both;
+	}
+	
+}
+
 #questions-list {
 	list-style: circle;
+	margin-left: 0.2em;
 }
 
 .row {
@@ -28,6 +41,11 @@
 
 .team-member {
 	text-align: center
+}
+
+.team-member h4 {
+	text-align: center;
+	margin: 0 0.4em;
 }
 
 .team-member p {
@@ -45,9 +63,11 @@
 
 .social-icon {
 	color: white;
+	display: inline-block;
 }
 
 .social-icon a {
+	display: inline-block;
 	background: #3385FF;
 	height: 30px;
 	width: 30px;
@@ -60,12 +80,19 @@
 }
 
 .list-inline {
+	padding: 0;
+	margin: 0;
+	white-space: nowrap;
 	list-style: none;
+	display: inline-block;
 }
 
 .list-inline li {
-	display: inline-block;
+	display: inline;
 	margin: 0 0.2em;
+	align-items: center;
+	justify-content: center;
+	text-align: center;
 }
 
 .navy {
@@ -98,12 +125,23 @@
 	#home h2 {
 		font-size: 40px;
 	}
-	
+
+	.team-member h4 {
+		white-space: normal;
+		margin-top: 20px;
+	}
+
+	#questions-list {
+		list-style: none;
+	}
+
+	.button {
+		display: none;
+	}
 }
 
 @media screen and (max-width: 480px) {
 	#anim {
 		font-size: 20px;
 	}
-	
 }
