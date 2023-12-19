@@ -1,13 +1,13 @@
 const questions = [
     'Let\'s play a game!',
-    'The most similar word to "England" among [..., English language, Equatorial_Guinea, Eritrea, Ethiopia, Europe, Famine, Flute, Fossil, France, ...] is:',
-    'The most similar word to "England" among [..., Czech Republic, Dark Ages, Democracy, Denmark, Dolphin, Dublin, Earth, England, Estonia, European Union, ...] is:',
+    'Prompt: The most similar word to "England" among [..., English language, Equatorial Guinea, Eritrea, Ethiopia, Europe, Famine, Flute, Fossil, France, ...] is:',
+    'Prompt: The most similar word to "England" among [..., Czech Republic, Dark Ages, Democracy, Denmark, Dolphin, Dublin, Earth, England, Estonia, European Union, ...] is:',
     'You reached the end of the game!'
 ];
 const answers = [
     'You have to reach "England" starting from "Africa".',
-    'Europe',
-    'England',
+    'LLM: Europe',
+    'LLM: England',
     'Well done!'
 ];
 
