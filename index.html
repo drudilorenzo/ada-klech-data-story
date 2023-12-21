@@ -76,35 +76,69 @@
 			<section class="main style3 primary">
 				<div class="content">
 					<header>
-						<h3>Subsection 1</h3>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-						Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
-						arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
+						<h3>Overview</h3>
+						<p>Some words on the total number of games polayed, total finished total unfinished. type of data (graph), goal of wikispeedia. Very few words</p>
 					</header>
 
 					<div>
-						<iframe src="assets/plots/boxplot_length.html" width="900" height="400", class="center"></iframe>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-							Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
-							arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
+						<div class="flourish-embed flourish-chart" data-src="visualisation/16169106"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+						<p> comments on the plot above <p>
+
+						<div class="flourish-embed flourish-chart" data-src="visualisation/16168925"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+						<p> comments on the plot above <p>
+						
+						<div class="flourish-embed flourish-sankey" data-src="visualisation/16169537"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+						<p> comments on the plot above <p>
+						
+						<div class="flourish-embed flourish-sankey" data-src="visualisation/16179089"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
+						<p> comments on the plot above <p>
+						
+						<p> cFinal words on this section, introduction to the next. <p></p>
 					</div>
+
 				</div>
 			</section>
 
 			<section class="gray main style3 gray">
 				<div class="content">
 					<header>
-						<h3>Subsection 2</h3>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-						Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
-						arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
+						<h3>Choice of LLM</h3>
+						<p>Since our project involves letting the 'AI' play the Wikispeedia game, we need to find an LLM that is able to play by following the commands. The best and first choice would have been **ChatGPT** with the *OpenAI - API*. However, our choice is restricted by resources (both computational and economical). Hence, we rescricted the scope of our research to the models with less than 13B parameters publicly available on the *HuggingFace* repository. After looking at the HF leaderboard, we focused on the following three models:
+
+							2. **LlaMA-13B**    (see the model on [hugging-face](https://huggingface.co/meta-llama/Llama-2-13b-hf))
+							3. **Mistral-7B**   (see the model on [hugging-face](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2))
+							
+							Note that: for all these models, we selected the *instruct* version, which means that the model is trained to follow instructions.
+							
+							While LlaMA-13B has more parameters than Mistral-7B, it was not performing as good (as the results from Jiang, Albert Q., et al. "Mistral 7B" arXiv preprint arXiv:2310.06825 (2023) are also proving): </p>
+						
+						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_hist.png" alt="Mistral vs LLaMA hist"
+							width="1000" 
+     						height=auto>
+						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_table.png" alt="Mistral vs LLaMA table"
+							width="1000" 
+							height=auto>
+							
 					</header>
 
 					<div>
-						<iframe src="assets/plots/boxplot_length.html" width="900" height="400", class="center"></iframe>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-							Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
-							arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
+						<p>Final words on this section, introduction to the next. <p></p>
+					<div>
+				</div>
+			</section>
+
+			<section class="main style3 primary">
+				<div class="content">
+					<header>
+						<h3>Human vs Mistral: Who is faster at Wikispeedia?</h3>
+						<p>KAEDE.</p>
+					</header>
+
+					<div>
+						<img src="./assets/images/analysis_imgs/human_vs_mistral_kaede.png" alt="Human vs Mistral">
+						<p>Here @Kaede can write some cool stuff.</p>
+					</div>
+						
 					</div>
 				</div>
 			</section>
@@ -112,18 +146,30 @@
 			<section class="main style3 primary">
 				<div class="content">
 					<header>
-						<h3>Subsection 3</h3>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-						Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
-						arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
+						<h3>Why?</h3>
+						<p>introduction to investigation methods:
+							- heatmaps
+							- zoom out zoom in 
+							- semantic distance step to step + step to goal 
+							- how sensical to human (overlap between paths)
+						</p>
 					</header>
 
 					<div>
-						<iframe src="assets/plots/boxplot_length.html" width="900" height="400", class="center"></iframe>
-						<p>Lorem ipsum dolor sit amet et sapien sed elementum egestas dolore condimentum.
-							Fusce blandit ultrices sapien, in accumsan orci rhoncus eu. Sed sodales venenatis
-							arcu, id varius justo euismod in. Curabitur egestas consectetur magna vitae.</p>
+						<img src="./assets/images/analysis_imgs/heatmap_human.png" alt="heatmap_human">
+						<img src="./assets/images/analysis_imgs/heatmap_mistral.png" alt="heatmap_mistral">
+						<p>Comments on the plot above (NOTE: should be put image side by side and smaller. Also all the other plots should be smaller) </p>
 					</div>
+				</div>
+			</section>
+
+			<section class="main style3 primary">
+				<div class="Conclusions">
+					<header>
+						<h3>Conclusions</h3>
+						<p>Put a nice meme. Write some conclusions</p>
+					</header>
+
 				</div>
 			</section>
 
