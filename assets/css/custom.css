@@ -57,11 +57,20 @@
 	margin-left: auto;
 	margin-right: auto;
 	text-align: center;
-	max-width: 100%;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
 	margin-bottom: 0.6em;
+}
+
+.img-pair iframe {
+	margin: auto;
+	display: block;
+}
+
+.img-pair img {
+	margin: auto;
+	display: block;
 }
 
 .gray {
@@ -189,6 +198,12 @@
 }
 
 /* Media Queries */
+@media screen and (max-width: 1600px) {
+	.img-pair {
+		flex-direction: column;
+	}
+}
+
 @media screen and (max-width: 900px) {
 	#intro div, #questions div {
 		clear: both;
@@ -216,10 +231,6 @@
 	
 	.button {
 		display: none;
-	}
-
-	.img-pair {
-		flex-direction: column;
 	}
 
 	.img-pair img {
