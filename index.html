@@ -230,9 +230,14 @@
 					<header>
 						<h3>Conclusions</h3>
 						<img src="./assets/images/ai-vs-human-artificial-intelligence.png" width="100%" height="auto" alt="Mistral vs LLaMA hist">
-						<p>Humans can generally complete Wikispeedia faster than Mistral.<br>
-						   Mistral will complete Wikispeedia games humans won't, and in a reasonable amount of time as well.
-
+						<p>1.	Though not a universal rule, across games pulled from a relatively representative selection of categories, humans can on average complete a Wikispeedia game faster than Mistral. 
+							<br>2.	Mistral will complete Wikispeedia games humans won’t, and in a reasonable amount of time as well.
+							<br>3.	Mistral’s inability to emulate humans’ zoom-out to hub, zoom-in to goal strategy may be responsible for its lesser speed performance
+							<br>4.	The inability mentioned above is likely induced by our prompt, which consistently asks Mistral to select the option “closest to” the goal – a strategy humans ignore to find hubs
+							<br>5.	Links to low-degree, semantically-appropriate pages low on a Wikipedia page (from a human’s perspective) may be the bait that exploits Mistral’s objective to lead it away from lucrative hubs
+							<br><br>
+							In summary: humans win this round, but they played under different rules. Researchers with more computational and financial power may yet devise a prompt architecture that allows a given LLM to both decouple its objective from semantic similarity and understand the structure of Wikipedia link placement as humans do. When that day comes, we would not be so quick to bet money on man.
+							
 						</p>
 					</header>
 
