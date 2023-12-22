@@ -103,17 +103,20 @@
 				<div class="content">
 					<header>
 						<h3>Choice of LLM</h3>
-						<p>Undertaking this project meant deciding which LLM we would ask to play Wikispeedia. This is not a simple choice. On the one hand, we needed a model trained on enough parameters to be able to consistently react appropriately to a series of Wikispeedia prompts, else we would not be able to programmatically generate AI-completed game paths.
+						<p>
+						Undertaking this project meant deciding which LLM we would ask to play Wikispeedia. This is not a simple choice. On the one hand, we needed a model trained on enough parameters to be able to consistently react appropriately to a series of Wikispeedia prompts, else we would not be able to programmatically generate AI-completed game paths.
 						OpenAI’s ChatGPT fits the bill. On the other hand, we’ve neither funding nor research-grade computational power, precluding use of OpenAI’s API at scale. Our economic and computational restrictions encouraged us to limit the scope of LLM candidates to those which are (1) publicly available on the HuggingFace repository and (2) trained with 13B
-						parameters or less. After consulting the HuggingFace leaderboard <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">[link]</a>, we focused on the following two models:<br>
+						parameters or less. After consulting the HuggingFace <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">[leaderboard]</a>, we focused on the following two models:<br>
 							
 							<ul>
 								<li><span class="bold">LlaMA-13B</span> : see the model on <a href="https://huggingface.co/meta-llama/Llama-2-13b-hf">[hugging-face]</a></li>
 								<li><span class="bold">Mistral-7B</span> : see the model on <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">[hugging-face]</a></li>
 							</ul>
 							
-							Despite LlaMA-13B’s parameter advantage, Mistral-7B could more consistently respond appropriately to our prompts (see prompt details below). This was the case in particular each model’s <span class="italic">instruct</span> version, which refers to the model variant trained to follow instructions. Mistral’s relative success is in line with research outcomes as well, such as the following set of benchmarks from <span class="italic">Jiang, Albert Q., et al. 2023 </span> <a href="https://arxiv.org/pdf/2310.06825.pdf">[arXiv]:
-
+							Note that: for all these models, we selected the <span class="italic">instruct</span> version, which means that the model is trained to follow instructions.<br>
+							
+							While LlaMA-13B has more parameters than Mistral-7B, it was not performing as good for our task. This is also in line with the results from <span class="italic">Jiang, Albert Q., et al. 2023 </span> <a href="https://arxiv.org/pdf/2310.06825.pdf">[arXiv]</a></li>, that are reported below:
+						</p>
 						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_hist.png" width="100%" height="auto" alt="Mistral vs LLaMA hist">
 						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_table.png" width="100%" height="auto" alt="Mistral vs LLaMA table">
 						
