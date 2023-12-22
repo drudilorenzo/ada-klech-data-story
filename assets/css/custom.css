@@ -35,6 +35,14 @@
 	text-align: justify;
 }
 
+.main.style3 > p > ul {
+	text-align: justify;
+}
+
+.main.style3 > p > ol {
+	text-align: justify;
+}
+
 .gray {
 	background-color: rgb(240, 238, 238);
 }
