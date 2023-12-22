@@ -64,13 +64,14 @@
 }
 
 .img-pair iframe {
-	margin: auto;
-	display: block;
+	overflow: visible;
+	clear: both;
+	width: 100%;
 }
 
-.img-pair img {
-	margin: auto;
-	display: block;
+.img-pair img, .img-pair iframe {
+	text-align: center;
+	align-content: center;
 }
 
 .gray {
@@ -198,15 +199,24 @@
 }
 
 /* Media Queries */
-@media screen and (max-width: 1600px) {
-	.img-pair {
-		flex-direction: column;
-	}
-}
-
 @media screen and (max-width: 900px) {
 	#intro div, #questions div {
 		clear: both;
+	
+	}
+
+	.img-pair img, .img-pair iframe {
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		border: 0;
+		font-size: 100%;
+		font: inherit;
+		vertical-align: baseline;
+	}
+
+	.img-pair {
+		flex-direction: column;
 	}
 	
 }
@@ -233,12 +243,13 @@
 		display: none;
 	}
 
-	.img-pair img {
-		width: 100%;
-	}
 }
 
 @media screen and (max-width: 480px) {
+
+	#avg_game_length {
+		display: none;
+	}
 
 	#anim {
 		font-size: 20px;
