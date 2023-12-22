@@ -15,4 +15,4 @@ Team members:
 
 Main repo [link](https://github.com/epfl-ada/ada-2023-project-klech). \
 Dataset [link](https://snap.stanford.edu/data/wikispeedia.html). \
-Rendered data story [link]([https://github.com/drudilorenzo/ada-klech-data-story](https://drudilorenzo.github.io/ada-klech-data-story/)https://drudilorenzo.github.io/ada-klech-data-story/).
+Rendered data story [link](https://drudilorenzo.github.io/ada-klech-data-story/).
