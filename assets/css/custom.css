@@ -47,6 +47,10 @@
 	text-align: justify;
 }
 
+.main.style3.div iframe {
+	text-align: center;
+}
+
 .img-pair {
 	display: block;
 	margin-left: auto;
