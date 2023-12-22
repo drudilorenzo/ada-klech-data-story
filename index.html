@@ -159,7 +159,8 @@
 					</header>
 
 					<div>
-						<img src="./assets/images/analysis_imgs/human_vs_mistral_kaede.png" width="100%" height="auto" alt="Human vs Mistral">
+						<div id="avg_game_length"></div>
+						<iframe src="./assets/plots/avg_game_length.html" width="100%" height="1300", class="center"></iframe>
 						<p>Those who spend unpaid manhours clicking through Wikipedia links for fun need not worry: the balance of game length – or speed - appears to be in humans’ favor. Across the 75 game pairs we had Mistral play (but not necessarily finish) 30 times each, just 5 show Mistral beating humans’ average speed with statistical significance. Humans, meanwhile, trump Mistral in 29 game pairs – nearly 40% of the set. What’s more, the scale of humanity’s wins is often larger than Mistral’s, as humanity can claim the top 19 highest-magnitude speed differentials. This is all to say that if you select a random game pair, humans are more likely than Mistral to be speedier at it, and when humans win, they win big..</p>
 						<p>We formalize our finding that humans are generally the speedier Wikispeedia player on a global scale through a t-test on game length across matched observations. If HF<sub>i</sub> is the number of finished human game paths for game pair i, and MF<sub>i</sub> is the number of finished Mistral game paths for game pair i, we sample min(HF<sub>i</sub>,MF<sub>i</sub>) observations from both human and Mistral data for each game pair i, match human observations to Mistral observations using game pair, take the difference in each pair’s game length, and perform a t-test for difference from 0 on the global set of these differences. We find humans use approximately one page less to reach their target in the matched set (this result is significant at the 99% confidence level). </p>
 						<p>EXACT RESULT IN CASE WE WANT A GRAPHIC OR CARD: t-statistic: -8.777983246249146, p-value: 3.8352417389369964e-18, avg: -0.9988726042841037</p>
