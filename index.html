@@ -113,7 +113,7 @@
 								<li><span class="bold">Mistral-7B</span> : see the model on <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">[hugging-face]</a></li>
 							</ul>
 							
-							Despite LlaMA-13B’s parameter advantage, Mistral-7B could more consistently respond appropriately to our prompts (see prompt details below). This was the case in particular each model’s <span class="italic">instruct</span> version, which refers to the model variant trained to follow instructions. Mistral’s relative success is in line with research outcomes as well, such as the following set of benchmarks from <span class="italic">Jiang, Albert Q., et al. 2023 </span> <a href="https://arxiv.org/pdf/2310.06825.pdf">[arXiv]</a>:
+							Despite LlaMA-13B’s parameter advantage, Mistral-7B could more consistently respond appropriately to our prompts (see prompt details below). This was the case in particular fpr each model’s <span class="italic">instruct</span> version, which refers to the model variant trained to follow instructions. Mistral’s relative success is in line with research outcomes as well, such as the following set of benchmarks from <span class="italic">Jiang, Albert Q., et al. 2023 </span> <a href="https://arxiv.org/pdf/2310.06825.pdf">[arXiv]</a>:
 						</p>
 						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_hist.png" width="100%" height="auto" alt="Mistral vs LLaMA hist">
 						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_table.png" width="100%" height="auto" alt="Mistral vs LLaMA table">
@@ -122,13 +122,10 @@
 					</header>
 
 					<div>
-						<p> Once the model was chosen, we faced and solved two other roadblocks:
-							<ol type="1">
-								<li> 1. Finding a good prompt: we needed to find a prompt architecture that will allow us to emulate the Wikispeedia game experience. Large language models have demonstrated outstanding performance on a wide range of tasks 
-									such as question answering. On a high level, given an input, we want the language model to automatically reply by following instructions related to our downstream task. However, language models are highly dependent on the choice of prompts, and usually 
-									small changes in the questions results in very different answers form the model. This is especially true when dealing with small models, like in our case. Afer literature review and several QA iterations on the 
-									model, we opted for the following chain-of-tought with one shot learning: <br>
-
+						<p> But successful AI-generated Wikispeedia data depends on our prompt as well as our model. We spent considerable time developing a prompt architecture that emulates the Wikispeedia game experience as a result. 
+							
+							In general, we find that small changes in our prompt yielded different answers and game paths for a given game pair. This is because even if large language models can demonstrate outstanding performance on question-answering tasks, both limited size and sequential responses can compromise this ability. Following literature review and several QA rounds with prompt variants, we opted for the following chain-of-thought prompt architecture with one shot learning:
+							 <br>
 									<div id="prompt" class="italic"> We now play the following game: <br>
 										
 									I will give you a target word and a list from which you can choose an option. If the list contains the target word, you choose it. Otherwise you choose the option that is most similar to it. Before starting, I give you one examples, then it's your turn: <br>
@@ -144,16 +141,14 @@
 									Reasoning: [REASONING] <br>
 									Answer: Hence the choice is: '[ANSWER]'</div> <br>
 
-								</li>
-								<li> 2. Let the (relatively small) model follow instrucitons: despite the elaborated and tested prompt, the model was still sometime hallucinating 
-									answers outside the provided list of links. To solve this, we used the <a href="https://lmql.ai/">LMQL</a> library (SRIlab @ETH Zürich) which
-									easily allows to specify constraints on the language model output, like <span class="italic">Choice From Set</span>. For more information on this library, we suggest the following 
-									set of documents <a href="https://lmql.ai/docs/">[docs]</a>  which is all-encompassing and easy to follow.</li><br>
-							</ol>
+									Note that in the prompt above, TARGET refers to the goal of a Wikispeedia game pair and LIST OF LINKS refers to the links available on a given Wikipedia page. LIST OF LINKS changes in each round of the game; TARGET does not.
+									To be clear, our prompt does not fully emulate the options available to human Wikispeedia players. In particular, Mistral is not given the option to revert to previous pages, nor is it given the option to abandon a game. We also maintain a blacklist in each game to ensure Mistral does not choose any link more than twice. Our testing determined that these compromises were necessary in order for Mistral to make continued responses that respected the bounds of our game. 
+									
+									In fact, despite elaborate prompt testing and tuning, we still found that Mistral would occasionally respond with answers not available in the list of links. To solve this, we use the <a href="https://lmql.ai/">LMQL</a> developed by ETH Zürich’s SRIlab lab, which allows us to specify constraints on Mistral’s output – namely, that it choose an option from our provided set of links. For more information on this library, we suggest the following set of documents <a href="https://lmql.ai/docs/">[docs]</a> which is all-encompassing and easy to follow.<br>
 						</p>
 						<p>
-						Now that we have the prompt and we know ghow to let it follow the instructions, we created a pipeline that let the model play all the games that huan players tried (completed or not) more than 
-						20 times, resulting in 75 games in total. Each game was attempted by Mistral a total nuymber of 30 trials per game. Which brings us to the following paragraph. 
+							With our LLM and prompt in place, we launched a pipeline that asked Mistral to play all the Wikispeedia game pairs which human players at least tried 20 or more times. At 30 rounds each for 75 game pairs, we create 2,250 AI-generated game paths total for our novel dataset. Note that not all of these games were completed, as we aborted any games in which Mistral had failed to reach the goal by round 30.
+							Now for the fun part: comparing Mistral data to human data!
 						</p>
 					<div>
 				</div>
