@@ -140,7 +140,14 @@
 						<p>We formalize our finding that humans are generally the speedier Wikispeedia player on a global scale through a t-test on game length across matched observations. If HF<sub>i</sub> is the number of finished human game paths for game pair i, and MF<sub>i</sub> is the number of finished Mistral game paths for game pair i, we sample min(HF<sub>i</sub>,MF<sub>i</sub>) observations from both human and Mistral data for each game pair i, match human observations to Mistral observations using game pair, take the difference in each pair’s game length, and perform a t-test for difference from 0 on the global set of these differences. We find humans use approximately one page less to reach their target in the matched set (this result is significant at the 99% confidence level). </p>
 						<p>EXACT RESULT IN CASE WE WANT A GRAPHIC OR CARD: t-statistic: -8.777983246249146, p-value: 3.8352417389369964e-18, avg: -0.9988726042841037</p>
 					</div>
-						
+					
+					<div>
+						<p>We should note that speed is not the only metric for measuring performance. Completion rate is an important metric as well. After all, what good is a talented athlete if he or she quits halfway through every game? Below, we report the cumulative proportion of games completed over time by both Mistral and humans in the top 5 most-played games without a clear speed-based winner. Above, these games were a wash. Notice now how completion rates paint a different picture:</p>
+						<img src="./assets/images/analysis_imgs/cumulative_completed.png" alt="Cumulative Completed">
+						<p>Clearly, Mistral has greater follow through in these game pairs than humans do. Perhaps drawn toward certain game pairs by perceived ease (Brain -> Telephone) or interesting pages (Cat->Computer, because who doesn’t love cats?) only to realize the game pair is more cumbersome than initially believed, humans appear prone to abandon attempts. Mistral, meanwhile, doesn’t have this freedom under our current prompt; it can only ‘abandon’ a game when it has made too many traversals or engaged in too many cycles. That it isn’t forced to abandon more games under these conditions suggests it is perceived difficulty rather than actual difficulty (which would take the form of exclusively non-semantically-intuitive paths toward the goal) that encourages humans to quit. Mistral is immune to the demoralizing effect of this perception, and is stronger player for it.
+							Yet the reason behind differences in completion rates is immediately intuitive. Less so the reason behind differences in speed. We thus turn our focus toward understanding <em>why</em> humans tend to be faster than Mistral among completed game paths. 
+							</p>
+					</div>
 					</div>
 				</div>
 			</section>
