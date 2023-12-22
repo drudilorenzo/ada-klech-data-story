@@ -14,4 +14,5 @@ Team members:
 - [Xingyue Zhang](https://github.com/bREAKtHEdOLL)
 
 Main repo [link](https://github.com/epfl-ada/ada-2023-project-klech). \
-Dataset [link](https://snap.stanford.edu/data/wikispeedia.html).
+Dataset [link](https://snap.stanford.edu/data/wikispeedia.html). \
+Rendered data story [link](https://github.com/drudilorenzo/ada-klech-data-story)
