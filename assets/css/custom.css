@@ -47,9 +47,10 @@
 	text-align: justify;
 }
 
-.main.style3 > .content iframe {
+.main.style3 iframe {
 	text-align: center;
 	align-content: center;
+	overflow-y: hidden;
 }
 
 .img-pair {
