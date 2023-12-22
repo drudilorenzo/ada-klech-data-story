@@ -18,6 +18,10 @@
 	font-size: 130%;
 }
 
+.main.style3 p {
+	text-align: justify;
+}
+
 .gray {
 	background-color: rgb(240, 238, 238);
 }
