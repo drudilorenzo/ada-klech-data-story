@@ -123,9 +123,9 @@
 
 					<div>
 						<p> But successful AI-generated Wikispeedia data depends on our prompt as well as our model. We spent considerable time developing a prompt architecture that emulates the Wikispeedia game experience as a result. 
-							
+							<br>
 							In general, we find that small changes in our prompt yielded different answers and game paths for a given game pair. This is because even if large language models can demonstrate outstanding performance on question-answering tasks, both limited size and sequential responses can compromise this ability. Following literature review and several QA rounds with prompt variants, we opted for the following chain-of-thought prompt architecture with one shot learning:
-							 <br>
+								<br>
 									<div id="prompt" class="italic"> We now play the following game: <br>
 										
 									I will give you a target word and a list from which you can choose an option. If the list contains the target word, you choose it. Otherwise you choose the option that is most similar to it. Before starting, I give you one examples, then it's your turn: <br>
@@ -142,12 +142,14 @@
 									Answer: Hence the choice is: '[ANSWER]'</div> <br>
 
 									Note that in the prompt above, TARGET refers to the goal of a Wikispeedia game pair and LIST OF LINKS refers to the links available on a given Wikipedia page. LIST OF LINKS changes in each round of the game; TARGET does not.
+									<br>
 									To be clear, our prompt does not fully emulate the options available to human Wikispeedia players. In particular, Mistral is not given the option to revert to previous pages, nor is it given the option to abandon a game. We also maintain a blacklist in each game to ensure Mistral does not choose any link more than twice. Our testing determined that these compromises were necessary in order for Mistral to make continued responses that respected the bounds of our game. 
-									
+									<br>
 									In fact, despite elaborate prompt testing and tuning, we still found that Mistral would occasionally respond with answers not available in the list of links. To solve this, we use the <a href="https://lmql.ai/">LMQL</a> developed by ETH Zürich’s SRIlab lab, which allows us to specify constraints on Mistral’s output – namely, that it choose an option from our provided set of links. For more information on this library, we suggest the following set of documents <a href="https://lmql.ai/docs/">[docs]</a> which is all-encompassing and easy to follow.<br>
 						</p>
 						<p>
 							With our LLM and prompt in place, we launched a pipeline that asked Mistral to play all the Wikispeedia game pairs which human players at least tried 20 or more times. At 30 rounds each for 75 game pairs, we create 2,250 AI-generated game paths total for our novel dataset. Note that not all of these games were completed, as we aborted any games in which Mistral had failed to reach the goal by round 30.
+							<br>
 							Now for the fun part: comparing Mistral data to human data!
 						</p>
 					<div>
