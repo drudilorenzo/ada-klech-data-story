@@ -93,36 +93,37 @@
 						<div class="flourish-embed flourish-sankey" data-src="visualisation/16179089"><script src="https://public.flourish.studio/resources/embed.js"></script></div>
 						<p> comments on the plot above <p>
 						
-						<p> cFinal words on this section, introduction to the next. <p></p>
+						<p> Final words on this section, introduction to the next. </p>
 					</div>
 
 				</div>
 			</section>
 
-			<section class="gray main style3 gray">
+			<section class="gray main style3">
 				<div class="content">
 					<header>
-						<h3>Choice of LLM</h3>
-						<p>Since our project involves letting the 'AI' play the Wikispeedia game, we need to find an LLM that is able to play by following the commands. The best and first choice would have been **ChatGPT** with the *OpenAI - API*. However, our choice is restricted by resources (both computational and economical). Hence, we rescricted the scope of our research to the models with less than 13B parameters publicly available on the *HuggingFace* repository. After looking at the HF leaderboard, we focused on the following three models:
-
-							2. **LlaMA-13B**    (see the model on [hugging-face](https://huggingface.co/meta-llama/Llama-2-13b-hf))
-							3. **Mistral-7B**   (see the model on [hugging-face](https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2))
-							
-							Note that: for all these models, we selected the *instruct* version, which means that the model is trained to follow instructions.
-							
-							While LlaMA-13B has more parameters than Mistral-7B, it was not performing as good (as the results from Jiang, Albert Q., et al. "Mistral 7B" arXiv preprint arXiv:2310.06825 (2023) are also proving): </p>
-						
-						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_hist.png" alt="Mistral vs LLaMA hist"
-							width="1000" 
-     						height=auto>
-						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_table.png" alt="Mistral vs LLaMA table"
-							width="1000" 
-							height=auto>
-							
+						<h3>Choice of LLM</h3>						
 					</header>
-
+					
 					<div>
-						<p>Final words on this section, introduction to the next. <p></p>
+						<p>Since our project involves letting the 'AI' play the Wikispeedia game, we need to find an LLM that is able to play by following the commands.
+						The best and first choice would have been <span class="bold">ChatGPT</span> with the <span class="italic">OpenAI - API</span>. However, our choice is restricted by resources (both computational
+						and economical). Hence, we rescricted the scope of our research to the models with less than 13B parameters publicly available on the <span class="italic">HuggingFace</span> repository.
+						After looking at the HF leaderboard, we focused on the following two models:
+							
+						<ol>
+							<li><span class="bold">LlaMA-13B</span> (see the model on <a href="https://huggingface.co/meta-llama/Llama-2-13b-hf">hugging-face</a>)</li>
+							<li><span class="bold">Mistral-7B</span> (see the model on <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">hugging-face</a>)</li>
+						</ol>
+							
+						Note that: for all these models, we selected the <span class="italic">instruct</span> version, which means that the model is trained to follow instructions.
+							
+						While LlaMA-13B has more parameters than Mistral-7B, it was not performing as good (as the <a href="https://arxiv.org/pdf/2310.06825.pdf">results</a> from Jiang, Albert Q., et al. are also proving):
+						</p>
+						
+						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_hist.png" alt="Mistral vs LLaMA hist" width="100%" height=auto>
+						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_table.png" alt="Mistral vs LLaMA table" width="100%" height=auto>
+						<p>Final words on this section, introduction to the next. </p>
 					<div>
 				</div>
 			</section>
@@ -139,20 +140,17 @@
 						<p>Those who spend unpaid manhours clicking through Wikipedia links for fun need not worry: the balance of game length – or speed - appears to be in humans’ favor. Across the 75 game pairs we had Mistral play (but not necessarily finish) 30 times each, just 5 show Mistral beating humans’ average speed with statistical significance. Humans, meanwhile, trump Mistral in 29 game pairs – nearly 40% of the set. What’s more, the scale of humanity’s wins is often larger than Mistral’s, as humanity can claim the top 19 highest-magnitude speed differentials. This is all to say that if you select a random game pair, humans are more likely than Mistral to be speedier at it, and when humans win, they win big..</p>
 						<p>We formalize our finding that humans are generally the speedier Wikispeedia player on a global scale through a t-test on game length across matched observations. If HF<sub>i</sub> is the number of finished human game paths for game pair i, and MF<sub>i</sub> is the number of finished Mistral game paths for game pair i, we sample min(HF<sub>i</sub>,MF<sub>i</sub>) observations from both human and Mistral data for each game pair i, match human observations to Mistral observations using game pair, take the difference in each pair’s game length, and perform a t-test for difference from 0 on the global set of these differences. We find humans use approximately one page less to reach their target in the matched set (this result is significant at the 99% confidence level). </p>
 						<p>EXACT RESULT IN CASE WE WANT A GRAPHIC OR CARD: t-statistic: -8.777983246249146, p-value: 3.8352417389369964e-18, avg: -0.9988726042841037</p>
-					</div>
-					
-					<div>
+
 						<p>We should note that speed is not the only metric for measuring performance. Completion rate is an important metric as well. After all, what good is a talented athlete if he or she quits halfway through every game? Below, we report the cumulative proportion of games completed over time by both Mistral and humans in the top 5 most-played games without a clear speed-based winner. Above, these games were a wash. Notice now how completion rates paint a different picture:</p>
 						<img src="./assets/images/analysis_imgs/cumulative_completed.png" alt="Cumulative Completed">
 						<p>Clearly, Mistral has greater follow through in these game pairs than humans do. Perhaps drawn toward certain game pairs by perceived ease (Brain -> Telephone) or interesting pages (Cat->Computer, because who doesn’t love cats?) only to realize the game pair is more cumbersome than initially believed, humans appear prone to abandon attempts. Mistral, meanwhile, doesn’t have this freedom under our current prompt; it can only ‘abandon’ a game when it has made too many traversals or engaged in too many cycles. That it isn’t forced to abandon more games under these conditions suggests it is perceived difficulty rather than actual difficulty (which would take the form of exclusively non-semantically-intuitive paths toward the goal) that encourages humans to quit. Mistral is immune to the demoralizing effect of this perception, and is stronger player for it.
 							Yet the reason behind differences in completion rates is immediately intuitive. Less so the reason behind differences in speed. We thus turn our focus toward understanding <em>why</em> humans tend to be faster than Mistral among completed game paths. 
 							</p>
 					</div>
-					</div>
 				</div>
 			</section>
 
-			<section class="main style3 primary">
+			<section class="gray main style3">
 				<div class="content">
 					<header>
 						<h3>Why?</h3>
@@ -173,7 +171,7 @@
 			</section>
 
 			<section class="main style3 primary">
-				<div class="Conclusions">
+				<div class="content">
 					<header>
 						<h3>Conclusions</h3>
 						<p>Put a nice meme. Write some conclusions</p>
