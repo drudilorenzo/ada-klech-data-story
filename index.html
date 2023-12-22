@@ -184,8 +184,7 @@
 
 					<div>
 						<div class="img-pair">
-							<img src="./assets/images/analysis_imgs/human_path_lengths.png" width="70%" height="auto" alt="Human path length">
-							<img src="./assets/images/analysis_imgs/mistral_path_lengths.png" width="70%" height="auto" alt="Mistral path length">
+							<img src="./assets/images/analysis_imgs/degree_over_path_lenghts.png" width="100%" height="auto" alt="Human and Mistral path length">
 						</div>
 						<p>One potential reason Mistral is not as capable of utilizing the zoom-out to hub, zoom-in to goal strategy employed by humans is our prompt. The set of links may change, the goal may change, but one thing is always stable: Mistral should select the option “most similar” to the ultimate goal. If Mistral is following these instructions, page navigation should always decrease semantic similarity to goal provided the list of options makes it possible. This could fly in the face of a zoom-out strategy if finding a hub means a temporary decrease in semantic similarity.</p>
 						<p>Using spaCy’s medium-sized web-trained English embeddings, we embed all Wikipedia page titles, calculate cosine similarity between current page and goal along all our Wikispeedia game paths, and average similarity to goal at each step of 2-, 3-, 4-, and 5-round games for human paths and Mistral paths separately:</p>
