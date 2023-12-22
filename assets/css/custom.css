@@ -22,9 +22,17 @@
 	text-align: justify;
 }
 
-.main.style3 ol {
+.main.style3 ol  {
 	text-align: justify;
 
+}
+
+.main.style3 ul {
+	text-align: justify;
+}
+
+.main.style3 li {
+	text-align: justify;
 }
 
 .gray {
