@@ -43,6 +43,18 @@
 	text-align: justify;
 }
 
+.img-pair {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	max-width: 100%;
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+	margin-bottom: 0.6em;
+}
+
 .gray {
 	background-color: rgb(240, 238, 238);
 }
@@ -196,9 +208,18 @@
 	.button {
 		display: none;
 	}
+
+	.img-pair {
+		flex-direction: column;
+	}
+
+	.img-pair img {
+		width: 100%;
+	}
 }
 
 @media screen and (max-width: 480px) {
+
 	#anim {
 		font-size: 20px;
 	}
