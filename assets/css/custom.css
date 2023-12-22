@@ -47,7 +47,7 @@
 	text-align: justify;
 }
 
-.main.style3.div iframe {
+.main.style3 > .content > div > iframe {
 	text-align: center;
 }
 
