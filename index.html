@@ -113,7 +113,7 @@
 								<li><span class="bold">Mistral-7B</span> : see the model on <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">[hugging-face]</a></li>
 							</ul>
 							
-							Despite LlaMA-13B’s parameter advantage, Mistral-7B could more consistently respond appropriately to our prompts (see prompt details below). This was the case in particular each model’s <span class="italic">instruct</span> version, which refers to the model variant trained to follow instructions. Mistral’s relative success is in line with research outcomes as well, such as the following set of benchmarks from <span class="italic">Jiang, Albert Q., et al. 2023 </span> <a href="https://arxiv.org/pdf/2310.06825.pdf">[arXiv]:
+							Despite LlaMA-13B’s parameter advantage, Mistral-7B could more consistently respond appropriately to our prompts (see prompt details below). This was the case in particular each model’s <span class="italic">instruct</span> version, which refers to the model variant trained to follow instructions. Mistral’s relative success is in line with research outcomes as well, such as the following set of benchmarks from <span class="italic">Jiang, Albert Q., et al. 2023 </span> <a href="https://arxiv.org/pdf/2310.06825.pdf">[arXiv]</a>:
 						</p>
 						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_hist.png" width="100%" height="auto" alt="Mistral vs LLaMA hist">
 						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_table.png" width="100%" height="auto" alt="Mistral vs LLaMA table">
@@ -129,10 +129,9 @@
 									small changes in the questions results in very different answers form the model. This is especially true when dealing with small models, like in our case. Afer literature review and several QA iterations on the 
 									model, we opted for the following chain-of-tought with one shot learning: <br>
 
-									<span class="italic"> We now play the following game: <br>
+									<div id="prompt" class="italic"> We now play the following game: <br>
 										
-									I will give you a target word and a list from which you can choose an option. If the list contains the target word, you choose it. Otherwise you choose the option that is most similar to it. Before starting, I give you one examples, then it's your turn: <>
-                
+									I will give you a target word and a list from which you can choose an option. If the list contains the target word, you choose it. Otherwise you choose the option that is most similar to it. Before starting, I give you one examples, then it's your turn: <br>
 									EXAMPLE:<br>
 									Target word: George_Washington<br>
 									Available options: [[Able_Archer_83, Afghanistan, , Estonia, Europe, Finland, France, French_language, George_W._Bush, Hungary,   September_11,_2001_attacks, United_States]] <br>
@@ -143,7 +142,7 @@
 									Target word: {TARGET} <br>
 									Available options: [[{LIST OF LINKS}]] <br>
 									Reasoning: [REASONING] <br>
-									Answer: Hence the choice is: '[ANSWER]'</span> <br>
+									Answer: Hence the choice is: '[ANSWER]'</div> <br>
 
 								</li>
 								<li> 2. Let the (relatively small) model follow instrucitons: despite the elaborated and tested prompt, the model was still sometime hallucinating 

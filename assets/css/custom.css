@@ -27,6 +27,10 @@
 
 }
 
+.main.style3 #prompt {
+	text-align: center;
+}
+
 .main.style3 ul {
 	text-align: justify;
 }
