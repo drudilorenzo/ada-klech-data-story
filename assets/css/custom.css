@@ -47,8 +47,9 @@
 	text-align: justify;
 }
 
-.main.style3 > .content > div > iframe {
+.main.style3 > .content iframe {
 	text-align: center;
+	align-content: center;
 }
 
 .img-pair {
