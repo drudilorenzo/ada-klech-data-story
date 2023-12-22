@@ -30,7 +30,7 @@
 			<section id="home" class="main style1 dark fullscreen" tabindex="">
 				<div class="content">
 					<header>
-						<h2>Man vs AI: A Comparison of Human and LLM Wikispeedia Strategy</h2>
+						<h2>Man vs AI: A Comparison of Human and LLM Wikispeedia Performance</h2>
 					</header>
 					<p id="anim"></p>
 				</div>
@@ -43,11 +43,9 @@
 						<h2>Introduction</h2>
 					</header>
 					<p>
-						LLMs are trained on extremely large corpuses of texts, most of the time written by humans over decades. This enables them to generate human-like sentences and reply to questions in a sound way. But how closely do they adopt human ways of thought? More specifically, can an LLM emulate through behavior the same thinking underpinning human semantic maps? 
+						LLMs are trained on extremely large corpuses of texts, most of the time written by humans over decades. This enables them to generate human-like sentences and reply to questions in a sound way. But how closely do they adopt human ways of thought? Would an LLM play a game involving semantic relationships the same way humans do? Would they play it better?
 					</p> <p>
-						To answer this question, we will enlist ChatGPT as a participant in Wikispeedia and evaluate its performance across a subset of popular but meaningfully diverse origin-goal page pairs previously played by humans. 
-						Our analysis will first parse ChatGPT's decisions for human 'readability' - that is, we will employ embeddings, TF-IDF vectorization on page content, and Wikispeedia-derived human semantic distances to determine if we, as humans, can justify ChatGPT's chosen paths. 
-						We will then will compare ChatGPT's paths to human paths, measuring levels of similarity in rounds-to-goal, 'zoom-in' / 'zoom-out', and rates of 'course correction', thereby quantifying ChatGPT's proximity to human strategization and ex-ante semantic mapping. 
+						To answer these questions, we will enlist an LLM as a participant in Wikispeedia, a game wherein players navigate from one Wikipedia page to another using as few clicks on Wikipedia page links as possible. We then compare the LLM’s results to human results, considering in particular speed, completion rates, progression towards goal over time, location of clicks on the Wikipedia page, and strategic use of Wikipedia pages with many links. Our findings contribute to a societal question more pressing in the past year than perhaps any time in human history: (when) will AI overtake humans’ ability to think creatively?
 					</p>
 				</div>
 				<a href="#questions" class="button style2 down anchored">Next</a>
@@ -60,8 +58,8 @@
 						<h2>Research Questions</h2>
 					</header>
 					<ul id="questions-list">
-						<li>Who is better at Wikispeedia: humans or an LLM?</li>
-						<li>If there is a clear winner, what about their strategy enables this?</li>
+						<li>Who is better at Wikispeedia: Humanity or an LLM?</li>
+						<li>If there is a clear winner, what strategy or phenomenon is producing advantage? </li>
 					</ul>
 				</div>
 				<a href="#datastory" class="button style2 down anchored">Next</a>
@@ -145,9 +143,9 @@
 									In fact, despite elaborate prompt testing and tuning, we still found that Mistral would occasionally respond with answers not available in the list of links. To solve this, we use the <a href="https://lmql.ai/">LMQL</a> developed by ETH Zürich’s SRIlab lab, which allows us to specify constraints on Mistral’s output – namely, that it choose an option from our provided set of links. For more information on this library, we suggest the following set of documents <a href="https://lmql.ai/docs/">[docs]</a> which is all-encompassing and easy to follow.<br>
 						</p>
 						<p>
-							With our LLM and prompt in place, we launched a pipeline that asked Mistral to play all the Wikispeedia game pairs which human players at least tried 20 or more times. At 30 rounds each for 75 game pairs, we create 2,250 AI-generated game paths total for our novel dataset. Note that not all of these games were completed, as we aborted any games in which Mistral had failed to reach the goal by round 30.
+							With our LLM and prompt in place, we launched a pipeline that asked Mistral to play all the Wikispeedia game pairs which human players tried 20 or more times. At 30 rounds each for 75 game pairs, we create 2,250 AI-generated game paths total for our novel dataset. Note that not all of these games were completed, as we aborted any games in which Mistral had failed to reach the goal by round 30.
 							<br><br>
-							Now for the fun part: comparing Mistral data to human data!
+							Now for the part we've all been waiting for: comparing Mistral data to human data!
 						</p>
 					<div>
 				</div>
@@ -169,7 +167,7 @@
 						<p>We should note that speed is not the only metric for measuring performance. Completion rate is an important metric as well. After all, what good is a talented athlete if he or she quits halfway through every game? Below, we report the cumulative proportion of games completed over time by both Mistral and humans in the top 5 most-played games without a clear speed-based winner. Above, these games were a wash. Notice now how completion rates paint a different picture:</p>
 						<img src="./assets/images/analysis_imgs/cumulative_completed.png" width="100%" height="auto" alt="Cumulative Completed">
 						<p>Clearly, Mistral has greater follow through in these game pairs than humans do. Perhaps drawn toward certain game pairs by perceived ease (Brain -> Telephone) or interesting pages (Cat->Computer, because who doesn’t love cats?) only to realize the game pair is more cumbersome than initially believed, humans appear prone to abandon attempts. Mistral, meanwhile, doesn’t have this freedom under our current prompt; it can only ‘abandon’ a game when it has made too many traversals or engaged in too many cycles. That it isn’t forced to abandon more games under these conditions suggests it is perceived difficulty rather than actual difficulty (which would take the form of exclusively non-semantically-intuitive paths toward the goal) that encourages humans to quit. Mistral is immune to the demoralizing effect of this perception, and is stronger player for it.
-							Yet the reason behind differences in completion rates is immediately intuitive. Less so the reason behind differences in speed. We thus turn our focus toward understanding <em>why</em> humans tend to be faster than Mistral among completed game paths. 
+							<br><br>The reason behind differences in completion rates is immediately intuitive. Less so the reason behind differences in speed. We thus turn our focus toward understanding <em>why</em> humans tend to be faster than Mistral among completed game paths. 
 							</p>
 					</div>
 				</div>
