@@ -22,6 +22,11 @@
 	text-align: justify;
 }
 
+.main.style3 ol {
+	text-align: justify;
+
+}
+
 .gray {
 	background-color: rgb(240, 238, 238);
 }

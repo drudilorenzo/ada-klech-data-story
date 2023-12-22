@@ -102,28 +102,59 @@
 			<section class="gray main style3">
 				<div class="content">
 					<header>
-						<h3>Choice of LLM</h3>						
-					</header>
-					
-					<div>
-						<p>Since our project involves letting the 'AI' play the Wikispeedia game, we need to find an LLM that is able to play by following the commands.
-						The best and first choice would have been <span class="bold">ChatGPT</span> with the <span class="italic">OpenAI - API</span>. However, our choice is restricted by resources (both computational
-						and economical). Hence, we rescricted the scope of our research to the models with less than 13B parameters publicly available on the <span class="italic">HuggingFace</span> repository.
-						After looking at the HF leaderboard, we focused on the following two models:
+						<h3>Choice of LLM</h3>
+						<p>Since our project involves letting the 'AI' play the Wikispeedia game, we need to find an LLM that is able to play by following the commands. The best and first choice would have been <b>ChatGPT</b> with the <i>OpenAI - API</i>. However, our choice is restricted by resources (both computational and economical). Hence, we rescricted the scope of our research to the models with less than 13B parameters publicly available on the <i>HuggingFace</i> repository. After looking at the HF leaderboard, we focused on the following two models:<br>
 							
-						<ol>
-							<li><span class="bold">LlaMA-13B</span> (see the model on <a href="https://huggingface.co/meta-llama/Llama-2-13b-hf">hugging-face</a>)</li>
-							<li><span class="bold">Mistral-7B</span> (see the model on <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">hugging-face</a>)</li>
-						</ol>
+							<ul>
+								<li><span class="bold">LlaMA-13B</span> : see the model on <a href="https://huggingface.co/meta-llama/Llama-2-13b-hf">[hugging-face]</a></li>
+								<li><span class="bold">Mistral-7B</span> : see the model on <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">[hugging-face]</a></li>
+							</ul>
 							
-						Note that: for all these models, we selected the <span class="italic">instruct</span> version, which means that the model is trained to follow instructions.
+							Note that: for all these models, we selected the <span class="italic">instruct</span> version, which means that the model is trained to follow instructions.<br>
 							
-						While LlaMA-13B has more parameters than Mistral-7B, it was not performing as good (as the <a href="https://arxiv.org/pdf/2310.06825.pdf">results</a> from Jiang, Albert Q., et al. are also proving):
-						</p>
+							While LlaMA-13B has more parameters than Mistral-7B, it was not performing as good for our task. This is also in line with the results from <span class="italic">Jiang, Albert Q., et al. 2023 </span> <a href="https://arxiv.org/pdf/2310.06825.pdf">[arXiv]</a></li>, that are reported below: </p>
 						
-						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_hist.png"  width="100%" height="auto" alt="Mistral vs LLaMA hist">
+						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_hist.png" width="100%" height="auto" alt="Mistral vs LLaMA hist">
 						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_table.png" width="100%" height="auto" alt="Mistral vs LLaMA table">
-						<p>Final words on this section, introduction to the next. </p>
+						
+							
+					</header>
+
+					<div>
+						<p> Once the model was chosen, we faced and solved two other roadblocks:
+							<ol type="1">
+								<li> 1. Finding a good prompt: we needed to find a prompt architecture that will allow us to emulate the Wikispeedia game experience. Large language models have demonstrated outstanding performance on a wide range of tasks 
+									such as question answering. On a high level, given an input, we want the language model to automatically reply by following instructions related to our downstream task. However, language models are highly dependent on the choice of prompts, and usually 
+									small changes in the questions results in very different answers form the model. This is especially true when dealing with small models, like in our case. Afer literature review and several QA iterations on the 
+									model, we opted for the following chain-of-tought with one shot learning: <br>
+
+									<span class="italic"> We now play the following game: <br>
+										
+									I will give you a target word and a list from which you can choose an option. If the list contains the target word, you choose it. Otherwise you choose the option that is most similar to it. Before starting, I give you one examples, then it's your turn: <>
+                
+									EXAMPLE:<br>
+									Target word: George_Washington<br>
+									Available options: [[Able_Archer_83, Afghanistan, , Estonia, Europe, Finland, France, French_language, George_W._Bush, Hungary,   September_11,_2001_attacks, United_States]] <br>
+									Reasoning: I need to find something inside the list related to the target: 'George_Washington'. George Washington was the first president of United States and he lived in United States. <br>
+									Answer: Hence the answer is: 'United_States'. <br>
+
+									YOUR TURN: <br>
+									Target word: {TARGET} <br>
+									Available options: [[{LIST OF LINKS}]] <br>
+									Reasoning: [REASONING] <br>
+									Answer: Hence the choice is: '[ANSWER]'</span> <br>
+
+								</li>
+								<li> 2. Let the (relatively small) model follow instrucitons: despite the elaborated and tested prompt, the model was still sometime hallucinating 
+									answers outside the provided list of links. To solve this, we used the <a href="https://lmql.ai/">LMQL</a> library (SRIlab @ETH Zürich) which
+									easily allows to specify constraints on the language model output, like <span class="italic">Choice From Set</span>. For more information on this library, we suggest the following 
+									set of documents <a href="https://lmql.ai/docs/">[docs]</a>  which is all-encompassing and easy to follow.</li><br>
+							</ol>
+						</p>
+						<p>
+						Now that we have the prompt and we know ghow to let it follow the instructions, we created a pipeline that let the model play all the games that huan players tried (completed or not) more than 
+						20 times, resulting in 75 games in total. Each game was attempted by Mistral a total nuymber of 30 trials per game. Which brings us to the following paragraph. 
+						</p>
 					<div>
 				</div>
 			</section>
@@ -174,6 +205,7 @@
 				<div class="content">
 					<header>
 						<h3>Conclusions</h3>
+						<img src="./assets/images/ai-vs-human-artificial-intelligence.png" width="100%" height="auto" alt="Mistral vs LLaMA hist">
 						<p>Put a nice meme. Write some conclusions</p>
 					</header>
 
