@@ -191,14 +191,20 @@
 							<img src="./assets/images/analysis_imgs/human_path_lengths.png" width="70%" height="auto" alt="Human path length">
 							<img src="./assets/images/analysis_imgs/mistral_path_lengths.png" width="70%" height="auto" alt="Mistral path length">
 						</div>
-
+						<p>One potential reason Mistral is not as capable of utilizing the zoom-out to hub, zoom-in to goal strategy employed by humans is our prompt. The set of links may change, the goal may change, but one thing is always stable: Mistral should select the option “most similar” to the ultimate goal. If Mistral is following these instructions, page navigation should always decrease semantic similarity to goal provided the list of options makes it possible. This could fly in the face of a zoom-out strategy if finding a hub means a temporary decrease in semantic similarity.</p>
+						<p>Using spaCy’s medium-sized web-trained English embeddings, we embed all Wikipedia page titles, calculate cosine similarity between current page and goal along all our Wikispeedia game paths, and average similarity to goal at each step of 2-, 3-, 4-, and 5-round games for human paths and Mistral paths separately:</p>
 						<div class="img-pair">
 							<img src="./assets/images/analysis_imgs/embedding_distance_to_goal_human.png" width="70%" height="auto" alt="Embedding distance to goal - human">
 							<img src="./assets/images/analysis_imgs/embedding_distance_to_goal_mistral.png" width="70%" height="auto" alt="Embedding distance to goal - Mistral">
 						</div>
-
 						<p>
-							Before closing, we explore one other avenue regarding the strategy differential between humans and Mistral: link location. Previous ADA teams, such as the 2022 team ADA & The Lovelaces [https://hugoparent.github.io/], have reported on the human tendency to select links at or near the top of a Wikipedia page. But Mistral is entirely blind to a link’s location on a Wikipedia page. In fact, in theory, Mistral should be blind to a link’s location inside the lists we provide in our successive prompts. What, then, would it look like if we observed Mistral’s selections based on the geometric location of the Wikipedia page links? If we mapped Mistral’s “clicks” to the proper Wikipedia pages, in other words? 
+							We see that, on average, humans (left) use their first move to take a non-negligible semantic step away from the goal. This is very likely a byproduct of the famed zoom-out to a hub strategy, and it persists across all game lengths. Mistral, meanwhile, only exacts a semantic step away from the goal in the first round of 5-round games – and a rather minor one at that. Even if we do not explicitly say semantic similarity in our prompt, the result is clear: a singular focus on word meaning blinds Mistral to other strategies and the preferred, winning strategy of humans in particular.  
+						</p>
+						<p>
+							But why is it the case that semantic similarity on its own infrequently yields a worthwhile hub? After all, it is reasonable to assume that in a game like Cat->Computer, the starting page is so distinct from the goal that the best available option for semantic similarity would also be rather general and, as a result, high in degree. To address this question, we close our analysis with a look at link location.
+						</p>
+						<p>
+							Previous ADA teams, such as the 2022 team ADA & The Lovelaces [https://hugoparent.github.io/], have reported on the human tendency to select links at or near the top of a Wikipedia page. But Mistral is entirely blind to a link’s location on a Wikipedia page. In fact, in theory, Mistral should be blind to a link’s location inside the lists we provide in our successive prompts. What, then, would it look like if we observed Mistral’s selections based on the geometric location of the Wikipedia page links? If we mapped Mistral’s “clicks” to the proper Wikipedia pages, in other words? 
 							<br><br>
 							Using the python implementation available in the ADA & The Lovelaces public git repo [https://github.com/epfl-ada/ada-2022-project-adaandthelovelaces], we visualize below the location of clicks made by humans in our selection of 75 games (left) and, for Mistral, the location clicks would have occurred if Mistral’s selections were unchanged but the game was played on actual Wikipedia pages (right). Please note that the specific heatmaps below do not appear in any previous report: the lefthand graph is isolated to just our 75-game set and the righthand graph is generated from Mistral data. 
 						</p>
@@ -217,7 +223,7 @@
 						<p>
 							The fact that pages likely to be linked high on a page exhibit a consistently higher curve in the plot above means higher links are more likely to house high-degree Wikipedia pages. To see why this conclusion should hold even if the difference in CCDFs is low, consider that the data is in some sense ‘matched’: humans considered every click in the distribution worthwhile. Such a uniform degree advantage to higher links in this context is notable. 
 							<br><br>
-							Mistral is already not explicitly searching for hubs. Add to this restriction the ‘bait’ of a low-degree but more semantically similar links further down the page, and it is easy to see how Mistral might get caught pursuing less lucrative page paths. Ultimately, the LLM appears to suffered for its lack of knowledge on how the underlying paths it is traversing are structured.
+							Mistral is already not explicitly searching for hubs. Add to this restriction the ‘bait’ of a low-degree but more semantically similar link further down the page, and it is easy to see how Mistral might get caught pursuing less lucrative page paths. Ultimately, our LLM appears to have also suffered from its lack of knowledge on how the underlying paths it is traversing are structured.
 						</p>
 					</div>
 				</div>
