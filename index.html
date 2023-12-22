@@ -103,7 +103,7 @@
 				<div class="content">
 					<header>
 						<h3>Choice of LLM</h3>
-						<p>Since our project involves letting the 'AI' play the Wikispeedia game, we need to find an LLM that is able to play by following the commands. The best and first choice would have been <b>ChatGPT</b> with the <i>OpenAI - API</i>. However, our choice is restricted by resources (both computational and economical). Hence, we rescricted the scope of our research to the models with less than 13B parameters publicly available on the <i>HuggingFace</i> repository. After looking at the HF leaderboard, we focused on the following two models:<br>
+						<p>Undertaking this project meant deciding which LLM we would ask to play Wikispeedia. This is not a simple choice. On the one hand, we needed a model trained on enough parameters to be able to consistently react appropriately to a series of Wikispeedia prompts, else we would not be able to programmatically generate AI-completed game paths. OpenAI’s ChatGPT fits the bill. On the other hand, we’ve neither funding nor research-grade computational power, precluding use of OpenAI’s API at scale. Our economic and computational restrictions encouraged us to limit the scope of LLM candidates to those which are (1) publicly available on the HuggingFace repository and (2) trained with 13B parameters or less. After consulting the HuggingFace <a href="https://huggingface.co/spaces/HuggingFaceH4/open_llm_leaderboard">[leaderboard], we focused on the following two models:<br>
 							
 							<ul>
 								<li><span class="bold">LlaMA-13B</span> : see the model on <a href="https://huggingface.co/meta-llama/Llama-2-13b-hf">[hugging-face]</a></li>
