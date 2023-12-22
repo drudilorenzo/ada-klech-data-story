@@ -2,7 +2,7 @@
 
 <html>
 	<head>
-		<title>Man vs AI</title>
+		<title>Human vs AI</title>
 		<meta charset="utf-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -30,7 +30,7 @@
 			<section id="home" class="main style1 dark fullscreen" tabindex="">
 				<div class="content">
 					<header>
-						<h2>Man vs AI: A Comparison of Human and LLM Wikispeedia Performance</h2>
+						<h2>Human vs AI: A Comparison of Human and LLM Wikispeedia Performance</h2>
 					</header>
 					<p id="anim"></p>
 				</div>
@@ -192,23 +192,33 @@
 							<img src="./assets/images/analysis_imgs/mistral_path_lengths.png" width="70%" height="auto" alt="Mistral path length">
 						</div>
 
-						<p>Before closing, we explore one other avenue regarding the strategy differential between humans and Mistral: link location. Previous ADA teams, such as the 2022 team ADA & The Lovelaces [https://hugoparent.github.io/], have reported on the human tendency to select links at or near the top of a Wikipedia page. But Mistral is entirely blind to a link’s location on a Wikipedia page. In fact, in theory, Mistral should be blind to a link’s location inside the lists we provide in our successive prompts. What, then, would it look like if we observed Mistral’s selections based on the geometric location of the Wikipedia page links? If we mapped Mistral’s “clicks” to the proper Wikipedia pages, in other words? 
+						<div class="img-pair">
+							<img src="./assets/images/analysis_imgs/embedding_distance_to_goal_human.png" width="70%" height="auto" alt="Embedding distance to goal - human">
+							<img src="./assets/images/analysis_imgs/embedding_distance_to_goal_mistral.png" width="70%" height="auto" alt="Embedding distance to goal - Mistral">
+						</div>
+
+						<p>
+							Before closing, we explore one other avenue regarding the strategy differential between humans and Mistral: link location. Previous ADA teams, such as the 2022 team ADA & The Lovelaces [https://hugoparent.github.io/], have reported on the human tendency to select links at or near the top of a Wikipedia page. But Mistral is entirely blind to a link’s location on a Wikipedia page. In fact, in theory, Mistral should be blind to a link’s location inside the lists we provide in our successive prompts. What, then, would it look like if we observed Mistral’s selections based on the geometric location of the Wikipedia page links? If we mapped Mistral’s “clicks” to the proper Wikipedia pages, in other words? 
 							<br><br>
 							Using the python implementation available in the ADA & The Lovelaces public git repo [https://github.com/epfl-ada/ada-2022-project-adaandthelovelaces], we visualize below the location of clicks made by humans in our selection of 75 games (left) and, for Mistral, the location clicks would have occurred if Mistral’s selections were unchanged but the game was played on actual Wikipedia pages (right). Please note that the specific heatmaps below do not appear in any previous report: the lefthand graph is isolated to just our 75-game set and the righthand graph is generated from Mistral data. 
-							</p>
+						</p>
 						<div class="img-pair">
 							<img src="./assets/images/analysis_imgs/heatmap_human.png" width="70%" height="auto" alt="Heatmap human">
 							<img src="./assets/images/analysis_imgs/heatmap_mistral.png" width="70%" height="auto" alt="Heatmap mistral">
 						</div>
-						<p>Immediately visible is the continued bias toward links at the top of the page (note that our lists are sorted alphabetically, decoupling our prompt from links’ geometric location). This likely reflects the greater incidence of links at the top of Wikipedia pages in general. Beneath the top, however, differences arise. Mistral is much more likely to “click” a link between y-coordinates 1000 and 3000. Furthermore, errant and semi-bright bulges toward the bottom of page confirm Mistral’s outlier click clusters are further down the page than humans’. 
+
+						<p>
+							Immediately visible is the continued bias toward links at the top of the page (note that our lists are sorted alphabetically, decoupling our prompt from links’ geometric location). This likely reflects the greater incidence of links at the top of Wikipedia pages in general. Beneath the top, however, differences arise. Mistral is much more likely to “click” a link between y-coordinates 1000 and 3000. Furthermore, errant and semi-bright bulges toward the bottom of page confirm Mistral’s outlier click clusters are further down the page than humans’. 
 							<br><br>
 							We believe this has implications for Wikispeedia outcomes. While Mistral’s location blindness ensures it has the opportunity to select the most semantically similar word even if it’s far down the page, as we have discussed above, the requirement that Mistral must prioritize semantic similarity above all else is perhaps a hindrance to speed. This is especially true if links further down the page are less likely to be hubs. To determine whether this was the case, we retained all human clicks across our 75 games, classified them according to whether they occurred at the top of the page – meaning the y coordinate was lower than 1000 – or not at the top of the page, and calculated the probability a given link appeared to the human player at the top of a page (we take the probability because the same page may be linked from different locations on different pages). Below is the CCDF of degree for pages likely to be linked high on a page versus pages less likely to be linked high on a page:
-							</p>
+						</p>
 						<img src="./assets/images/analysis_imgs/degree_ccdf.png" width="100%" height="auto" alt="Degree CCDF">
-						
-						<p>The fact that pages likely to be linked high on a page exhibit a consistently higher curve in the plot above means higher links are more likely to house high-degree Wikipedia pages. To see why this conclusion should hold even if the difference in CCDFs is low, consider that the data is in some sense ‘matched’: humans considered every click in the distribution worthwhile. Such a uniform degree advantage to higher links in this context is notable. 
-							<br><br>Mistral is already not explicitly searching for hubs. Add to this restriction the ‘bait’ of a low-degree but more semantically similar links further down the page, and it is easy to see how Mistral might get caught pursuing less lucrative page paths. Ultimately, the LLM appears to suffered for its lack of knowledge on how the underlying paths it is traversing are structured.
-							</p>
+						<br>
+						<p>
+							The fact that pages likely to be linked high on a page exhibit a consistently higher curve in the plot above means higher links are more likely to house high-degree Wikipedia pages. To see why this conclusion should hold even if the difference in CCDFs is low, consider that the data is in some sense ‘matched’: humans considered every click in the distribution worthwhile. Such a uniform degree advantage to higher links in this context is notable. 
+							<br><br>
+							Mistral is already not explicitly searching for hubs. Add to this restriction the ‘bait’ of a low-degree but more semantically similar links further down the page, and it is easy to see how Mistral might get caught pursuing less lucrative page paths. Ultimately, the LLM appears to suffered for its lack of knowledge on how the underlying paths it is traversing are structured.
+						</p>
 					</div>
 				</div>
 			</section>
@@ -308,7 +318,7 @@
 			<script src="assets/js/main.js"></script>
 			<script src="assets/js/typing.js"></script>
 
-			<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+			<script src="https://code.jquery.com/jqManuery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 			<script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 	</body>
