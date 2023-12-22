@@ -75,6 +75,10 @@
 	align-content: center;
 }
 
+.img-pair img {
+	margin: 0 0.5em 0 0.5em;
+}
+
 .gray {
 	background-color: rgb(240, 238, 238);
 }
@@ -218,6 +222,10 @@
 
 	.img-pair {
 		flex-direction: column;
+	}
+
+	.img-pair img {
+		margin: 0.5em 0 0.5em 0;
 	}
 	
 }
