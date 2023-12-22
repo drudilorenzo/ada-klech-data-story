@@ -2,7 +2,7 @@
 ![](https://img.shields.io/badge/HTML5-E34F26?style=for-the-badge&logo=html5&logoColor=white)
 ![](https://img.shields.io/badge/Plotly-239120?style=for-the-badge&logo=plotly&logoColor=white)
 
-# Man vs AI: A Comparison of Human and LLM Wikispeedia Strategy
+# Human vs AI: A Comparison of Human and LLM Wikispeedia Strategy
 
 Website for the `Applied Data Analysis` course at EPFL (CS-401), 2023.
 
