@@ -107,7 +107,8 @@
 								<li><span class="bold">LlaMA-13B</span> : see the model on <a href="https://huggingface.co/meta-llama/Llama-2-13b-hf">hugging-face</a></li>
 								<li><span class="bold">Mistral-7B</span> : see the model on <a href="https://huggingface.co/mistralai/Mistral-7B-Instruct-v0.2">hugging-face</a></li>
 							</ul>
-							
+						</p>
+						<p>	
 						Despite LlaMA-13B’s parameter advantage, Mistral-7B could more consistently respond appropriately to our prompts (see prompt details below). This was the case in particular for each model’s <span class="italic">instruct</span> version, which refers to the model variant trained to follow instructions. Mistral’s relative success is in line with research outcomes as well, such as the following set of benchmarks from <span class="italic">Jiang, Albert Q., et al. 2023 </span> <a href="https://arxiv.org/pdf/2310.06825.pdf">[arXiv]</a>:
 						</p>
 						<img src="./assets/images/analysis_imgs/MISTRALvsLLaMA_hist.png" width="100%" height="auto" alt="Mistral vs LLaMA hist">
@@ -167,7 +168,7 @@
 
 						<p>We should note that speed is not the only metric for measuring performance. Completion rate is an important metric as well. After all, what good is a talented athlete if he or she quits halfway through every game? Below, we report the cumulative proportion of games completed over time by both Mistral and humans in the top 5 most-played games without a clear speed-based winner. Above, these games were a wash. Notice now how completion rates paint a different picture:</p>
 						<img src="./assets/images/analysis_imgs/cumulative_completed.png" width="70%" height="auto" alt="Cumulative Completed">
-						<p>Clearly, Mistral has greater follow through in these game pairs than humans do. Perhaps drawn toward certain game pairs by perceived ease (Brain -> Telephone) or interesting pages (Cat->Computer, because who doesn’t love cats?) only to realize the game pair is more cumbersome than initially believed, humans appear prone to abandon attempts. Mistral, meanwhile, doesn’t have this freedom under our current prompt; it can only ‘abandon’ a game when it has made too many traversals or engaged in too many cycles. That it isn’t forced to abandon more games under these conditions suggests it is perceived difficulty rather than actual difficulty (which would take the form of exclusively non-semantically-intuitive paths toward the goal) that encourages humans to quit. Mistral is immune to the demoralizing effect of this perception, and is stronger player for it.
+						<p>Clearly, Mistral has greater follow through in these game pairs than humans do. Perhaps drawn toward certain game pairs by perceived ease (Brain -> Telephone) or interesting pages (Cat->Computer, because who doesn’t love cats?) only to realize the game pair is more cumbersome than initially believed, humans appear prone to abandon attempts. Mistral, meanwhile, doesn’t have this freedom under our current prompt; it can only ‘abandon’ a game when it has made too many traversals or engaged in too many cycles. That it isn’t forced to abandon more games under these conditions suggests it is perceived difficulty rather than actual difficulty (which would take the form of exclusively non-semantically-intuitive paths toward the goal) that encourages humans to quit. Mistral is immune to the demoralizing effect of this perception, and is a stronger player for it.
 							<br><br>The reason behind differences in completion rates is immediately intuitive. Less so the reason behind differences in speed. We thus turn our focus toward understanding <em>why</em> humans tend to be faster than Mistral among completed game paths. 
 							</p>
 					</div>
