@@ -220,7 +220,7 @@
 						<img src="./assets/images/analysis_imgs/degree_ccdf.png" width="100%" height="auto" alt="Degree CCDF" style="margin-top: 2em; margin-bottom: 2em">
 						<br>
 						<p>
-							The fact that pages likely to be linked high on a page exhibit a consistently higher curve in the plot above means higher links are more likely to house high-degree Wikipedia pages. To see why this conclusion should hold even if the difference in CCDFs is low, consider that the data is in some sense ‘matched’: humans considered every click in the distribution worthwhile. Such a uniform degree advantage to higher links in this context is notable. 
+							The fact that pages likely to be linked high on a page exhibit a consistently higher curve in the plot above means higher links are more likely to house high-degree Wikipedia pages, or hubs. To see why this conclusion should hold even if the difference in CCDFs is low, consider that the data is in some sense ‘matched’: humans considered every click in the distribution worthwhile. Such a uniform degree advantage to higher links in this context is notable. 
 							<br><br>
 							Mistral is already not explicitly searching for hubs. Add to this restriction the ‘bait’ of a low-degree but more semantically similar link further down the page, and it is easy to see how Mistral might get caught pursuing less lucrative page paths. Ultimately, our LLM appears to have also suffered from its lack of knowledge on how the underlying paths it is traversing are structured.
 						</p>
@@ -238,7 +238,7 @@
 							<li>Mistral will complete Wikispeedia games humans won’t, and in a reasonable amount of time as well.</li>
 							<li>Mistral’s inability to emulate humans’ zoom-out to hub, zoom-in to goal strategy may be responsible for its lesser speed performance.</li>
 							<li>The inability mentioned above is likely induced by our prompt, which consistently asks Mistral to select the option “closest to” the goal – a strategy humans may briefly ignore (at least from a semantic perspective) to find hubs.</li>
-							<li>Links to low-degree, semantically-appropriate pages that are physically low on real Wikipedia pages may be the bait that exploits Mistral’s location-blind selections to lead it away from lucrative hubs.</li>
+							<li>Links to low-degree, semantically-appropriate pages that are located low on real Wikipedia pages may be the bait that exploits Mistral’s location-blind lens to lead it away from lucrative hubs.</li>
 						</ol>
 						
 						<p>In summary: humans win this round, but they played under different rules. Researchers with more computational and financial power may yet devise a prompt architecture that allows a given LLM to both decouple its objective from semantic similarity and understand the structure of Wikipedia link placement as humans do. When that day comes, we would not be so quick to bet money on humans.</p>
